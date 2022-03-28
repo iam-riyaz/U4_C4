@@ -99,7 +99,7 @@ app.get("/todos/:id",async(req,res)=>{
     }
 })
 
-app.patch("todos/:id",async(req,res)=>{
+app.patch("/todos/:id",async(req,res)=>{
     try{
 
         const user=await Todo.findByIdAndUpdate(req.params.id, req.body,{new:true})
@@ -112,7 +112,7 @@ app.patch("todos/:id",async(req,res)=>{
       }
 })
 
-app.delete("todos/:id",async(req,res)=>{
+app.delete("/todos/:id",async(req,res)=>{
     try{
         const user=await Todo.findByIdAndDelete(req.params.id,req.body,{new:true})
         return res.status(200).send(user)
